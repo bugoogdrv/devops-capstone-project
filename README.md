@@ -1,5 +1,7 @@
 # devops-capstone-project
 
+![Build Status](https://github.com/bugoogdrv/devops-capstone-project/actions/workflows/ci.yml/badge.svg)
+
 ## Project Description
 
 **devops-capstone-project** is the customer accounts microservice for an e-commerce website. It is a Python Flask REST API backed by PostgreSQL that stores basic customer information (name, email, address, phone number, and date joined).
