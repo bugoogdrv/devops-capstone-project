@@ -57,6 +57,7 @@ def create_accounts():
         jsonify(message), status.HTTP_201_CREATED, {"Location": location_url}
     )
 
+
 ######################################################################
 # LIST ALL ACCOUNTS
 ######################################################################
@@ -73,6 +74,7 @@ def list_accounts():
 
     app.logger.info("Returning [%d] accounts", len(account_list))
     return jsonify(account_list), status.HTTP_200_OK
+
 
 ######################################################################
 # READ AN ACCOUNT
@@ -93,6 +95,7 @@ def read_account(account_id):
         )
 
     return account.serialize(), status.HTTP_200_OK
+
 
 ######################################################################
 # UPDATE AN EXISTING ACCOUNT
@@ -116,18 +119,28 @@ def update_account(account_id):
     account.update()
     return account.serialize(), status.HTTP_200_OK
 
+
 ######################################################################
 # DELETE AN ACCOUNT
 ######################################################################
+@app.route("/accounts/<int:account_id>", methods=["DELETE"])
+def delete_account(account_id):
+    """
+    Delete an Account
+    This endpoint will delete an Account based on the account_id specified
+    """
+    app.logger.info("Request to delete an Account with id: %s", account_id)
 
-# ... place you code here to DELETE an account ...
+    account = Account.find(account_id)
+    if account:
+        account.delete()
+
+    return "", status.HTTP_204_NO_CONTENT
 
 
 ######################################################################
 #  U T I L I T Y   F U N C T I O N S
 ######################################################################
-
-
 def check_content_type(media_type):
     """Checks that the media type is correct"""
     content_type = request.headers.get("Content-Type")
