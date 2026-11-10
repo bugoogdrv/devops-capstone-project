@@ -49,10 +49,14 @@ def create_accounts():
     account = Account()
     account.deserialize(request.get_json())
     account.create()
+    """
     message = account.serialize()
     # Uncomment once get_accounts has been implemented
     # location_url = url_for("get_accounts", account_id=account.id, _external=True)
     location_url = "/"  # Remove once get_accounts has been implemented
+    """
+    message = account.serialize()
+    location_url = url_for("read_account", account_id=account.id, _external=True)
     return make_response(
         jsonify(message), status.HTTP_201_CREATED, {"Location": location_url}
     )
