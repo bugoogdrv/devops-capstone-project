@@ -1,6 +1,6 @@
 # devops-capstone-project
 
-![Build Status](https://github.com/bugoogdrv/devops-capstone-project/actions/workflows/ci.yml/badge.svg)
+![Build Status](https://github.com/bugoogdrv/devops-capstone-project/actions/workflows/ci-build.yaml/badge.svg)
 
 ## Project Description
 
